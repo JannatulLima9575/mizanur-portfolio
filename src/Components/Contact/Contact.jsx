@@ -10,7 +10,7 @@ import {
   FaSlack,
 } from "react-icons/fa";
 
-// আপনার data + link
+// Contact Data
 const contacts = [
   {
     icon: <FaLinkedin />,
@@ -52,7 +52,7 @@ const contacts = [
     icon: <FaDiscord />,
     title: "Discord",
     value: "asif#1234",
-    link: "#", // যদি Discord link না থাকে
+    link: "#",
   },
   {
     icon: <FaSlack />,
@@ -64,14 +64,21 @@ const contacts = [
 
 const Contact = () => {
   return (
-    <section className="w-full bg-white px-6 md:px-16 py-20">
+    <section id="contact" className="w-full bg-white px-6 md:px-16 py-20">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Title */}
-        <h2 className="text-4xl font-bold mb-3">
+        <h2
+          data-aos="fade-up"
+          className="text-4xl font-bold mb-3"
+        >
           <span className="text-purple-600">#</span> Contact
         </h2>
-        <p className="text-gray-600 mb-12">
+        <p
+          data-aos="fade-up"
+          data-aos-delay="150"
+          className="text-gray-600 mb-12"
+        >
           Connect with me through social media.
         </p>
 
@@ -83,7 +90,9 @@ const Contact = () => {
               href={item.link}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-4 border border-purple-100 rounded-xl p-5 hover:shadow-md hover:-translate-y-1 transition"
+              data-aos="fade-up"
+              data-aos-delay={index * 150} // stagger animation
+              className="flex items-center gap-4 border border-purple-100 rounded-xl p-5 hover:shadow-md hover:-translate-y-1 transition duration-300"
             >
               <div className="w-12 h-12 flex items-center justify-center bg-purple-100 text-purple-600 text-xl rounded-lg">
                 {item.icon}

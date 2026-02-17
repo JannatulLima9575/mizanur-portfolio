@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const skillsData = [
   {
@@ -32,9 +34,22 @@ const skillsData = [
 ];
 
 const Skills = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      // once: true,
+      easing: "ease-in-out",
+    });
+  }, []);
+
   return (
     <section className="bg-white py-16 px-4">
-      <h2 className="text-3xl font-bold text-center mb-12">My Skills</h2>
+      <h2
+        data-aos="fade-up"
+        className="text-3xl font-bold text-center mb-12"
+      >
+        My Skills
+      </h2>
 
       <div className="relative max-w-6xl mx-auto">
         {/* Vertical Line */}
@@ -44,10 +59,10 @@ const Skills = () => {
           {skillsData.map((item, index) => (
             <div
               key={index}
+              data-aos="fade-up"
+              data-aos-delay={index * 200} // stagger animation
               className={`flex flex-col md:flex-row items-center ${
-                item.side === "left"
-                  ? "md:justify-start"
-                  : "md:justify-end"
+                item.side === "left" ? "md:justify-start" : "md:justify-end"
               }`}
             >
               {/* Card */}

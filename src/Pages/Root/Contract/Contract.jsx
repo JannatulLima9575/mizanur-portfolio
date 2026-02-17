@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import {
   FaMapMarkerAlt,
@@ -9,19 +9,30 @@ import {
   FaTwitter,
   FaLinkedin,
 } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Contract = () => {
   const form = useRef();
+
+  // AOS init
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      // once: true,
+      easing: "ease-in-out",
+    });
+  }, []);
 
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs
       .sendForm(
-        "service_ftzh5dp",   // 🔹 তোমার Service ID
-        "template_re6h82t",  // 🔹 তোমার Template ID
+        "service_ftzh5dp",
+        "template_re6h82t",
         form.current,
-        "KAvlHYTIieG35i_cq" // 🔹 তোমার Public Key
+        "KAvlHYTIieG35i_cq"
       )
       .then(
         () => {
@@ -36,11 +47,17 @@ const Contract = () => {
   };
 
   return (
-    <section className="w-full min-h-screen flex items-center justify-center bg-gray-50 px-4 py-16">
+    <section
+      id="contact"
+      className="w-full min-h-screen flex items-center justify-center bg-gray-50 px-4 py-16"
+    >
       <div className="max-w-6xl w-full bg-white shadow-xl rounded-2xl grid md:grid-cols-2 overflow-hidden">
 
         {/* Left Side - Contact Info */}
-        <div className="bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white p-10 flex flex-col justify-between">
+        <div
+          data-aos="fade-right"
+          className="bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white p-10 flex flex-col justify-between"
+        >
           <div>
             <h2 className="text-2xl font-bold mb-8">Contact Info</h2>
             <div className="space-y-5 text-sm">
@@ -52,14 +69,24 @@ const Contract = () => {
           </div>
 
           <div className="flex gap-4 text-xl mt-10">
-            <a href="https://github.com/mizanurrahman017" target="_blank" rel="noreferrer"><FaGithub className="hover:text-purple-400 cursor-pointer" /></a>
-            <a href="https://twitter.com/yourusername" target="_blank" rel="noreferrer"><FaTwitter className="hover:text-purple-400 cursor-pointer" /></a>
-            <a href="https://www.linkedin.com/in/mizanur-rahman-asif-599711383/" target="_blank" rel="noreferrer"><FaLinkedin className="hover:text-purple-400 cursor-pointer" /></a>
+            <a href="https://github.com/mizanurrahman017" target="_blank" rel="noreferrer">
+              <FaGithub className="hover:text-purple-400 cursor-pointer" />
+            </a>
+            <a href="https://twitter.com/yourusername" target="_blank" rel="noreferrer">
+              <FaTwitter className="hover:text-purple-400 cursor-pointer" />
+            </a>
+            <a href="https://www.linkedin.com/in/mizanur-rahman-asif-599711383/" target="_blank" rel="noreferrer">
+              <FaLinkedin className="hover:text-purple-400 cursor-pointer" />
+            </a>
           </div>
         </div>
 
         {/* Right Side - Contact Form */}
-        <div className="p-10">
+        <div
+          data-aos="fade-left"
+          data-aos-delay="200"
+          className="p-10"
+        >
           <h2 className="text-3xl font-bold text-blue-600 mb-2">Let’s Work Together</h2>
           <p className="text-gray-500 mb-8">Have a project in mind or just want to say hi?</p>
 

@@ -7,6 +7,8 @@ import About from '../Components/About/About';
 import Worked from '../Pages/Root/Worked/Worked';
 import Skills from '../Pages/Root/Skills/Skills';
 import Contract from '../Pages/Root/Contract/Contract';
+import Education from '../Pages/Root/Education/Education';
+
 
 
 
@@ -37,6 +39,10 @@ export const router = createBrowserRouter([
          {
             path:"contact",
             element:<Contract></Contract>,
+         },
+         {
+          path:"education",
+          element:<Education></Education>
          }
        
     ]
