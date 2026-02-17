@@ -20,13 +20,13 @@ const Banner = () => {
           {/* Typewriter Effect */}
           <h3 className="text-2xl md:text-3xl text-gray-600 mt-4">
             <Typewriter
-              words={["Frontend Web Developer", "MERN Stack Developer"]}
-              loop={0}           // 0 মানে শেষের পরে আবার শুরু হবে
+              words={["Frontend Web Developer"]}
+              loop={0}      
               cursor
               cursorStyle="|"
               typeSpeed={70}
               deleteSpeed={50}
-              delaySpeed={2000} // প্রতিটি শব্দের পরে কত ms অপেক্ষা করবে
+              delaySpeed={2000}
             />
           </h3>
 
